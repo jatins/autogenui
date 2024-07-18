@@ -1,0 +1,35 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Jatin Shridhar", email = "shridhar.jatin@gmail.com" }
+]
+dependencies = [
+    "fastapi>=0.111.1",
+    "fastapi-cors>=0.0.6",
+    "sqlalchemy>=2.0.31",
+    "pytest>=8.2.2",
+]
+readme = "README.md"
+requires-python = ">= 3.12"
+
+[project.scripts]
+"backend" = "backend:main"
+
+[tool.rye.scripts]
+dev = { cmd = "fastapi dev ./src/backend/main.py" }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/backend"]
